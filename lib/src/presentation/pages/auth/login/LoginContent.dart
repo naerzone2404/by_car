@@ -1,0 +1,189 @@
+import 'package:flutter/material.dart';
+import 'package:indriver_clone_flutter/src/presentation/widgets/DefaulltTextField.dart';
+import 'package:indriver_clone_flutter/src/presentation/widgets/DefaultButton.dart';
+
+class Logincontent extends StatelessWidget {
+  const Logincontent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return Stack(
+      children: [
+        Container(
+          width: size.width,
+          height: size.height,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color.fromARGB(255, 12, 38, 145),
+
+                Color.fromARGB(255, 34, 156, 249),
+              ],
+            ),
+          ),
+          padding: EdgeInsets.only(left: 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start, // horizontal
+            mainAxisAlignment: MainAxisAlignment.center, // vertical
+            children: [
+              RotatedBox(
+                quarterTurns: 1,
+                child: Text(
+                  'Login',
+                  style: TextStyle(
+                    fontSize: 27,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              SizedBox(height: 50),
+              RotatedBox(
+                quarterTurns: 1,
+                child: Text(
+                  'Registro',
+                  style: TextStyle(fontSize: 24, color: Colors.white),
+                ),
+              ),
+              SizedBox(height: 50),
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 60, bottom: 60),
+
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color.fromARGB(255, 14, 29, 166),
+                Colors.blue,
+                Color.fromARGB(255, 30, 112, 227),
+                Colors.blue,
+              ],
+            ),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25),
+              bottomLeft: Radius.circular(25),
+            ),
+          ),
+          child: Container(
+            margin: EdgeInsets.only(top: 0, bottom: 0, left: 25, right: 25),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 50),
+                Text(
+                  'Welcome',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'back...',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerRight,
+                  child: Image.asset(
+                    'assets/img/car.png',
+                    width: 150,
+                    height: 150,
+                  ),
+                ),
+
+                Text(
+                  'Log in',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Defaullttextfield(icon: Icons.email_outlined, text: 'Email'),
+                Defaullttextfield(
+                  icon: Icons.lock_outline,
+                  text: 'Password',
+                  margin: EdgeInsets.only(top: 15, left: 20, right: 20),
+                ),
+                Spacer(),
+                Defaultbutton(
+                  size: size,
+                  text: 'Login',
+                  color: Colors.purple,
+                  textColor: Colors.white,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(right: 5),
+                      width: 25,
+                      height: 1,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      ' O',
+                      style: TextStyle(color: Colors.grey[100], fontSize: 17),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 5),
+                      width: 25,
+                      height: 1,
+                      color: Colors.white,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '¿No tienes cuenta?',
+
+                      style: TextStyle(color: Colors.grey[100], fontSize: 17),
+                    ),
+                    SizedBox(width: 7),
+                    Text(
+                      ' Regístrate',
+                      style: TextStyle(
+                        color: Colors.grey[100],
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 50),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _textLoginRotate() {
+    return RotatedBox(
+      quarterTurns: 1,
+      child: Text(
+        'Login',
+        style: TextStyle(
+          fontSize: 27,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+}
