@@ -14,7 +14,7 @@ class Defaullttextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 45,
       margin: margin,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -37,6 +37,7 @@ class Defaullttextfield extends StatelessWidget {
               ],
             ),
           ),
+          //contentPadding: EdgeInsets.only(top: 10, left: 10),
         ),
       ),
     );

@@ -29,26 +29,10 @@ class Logincontent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start, // horizontal
             mainAxisAlignment: MainAxisAlignment.center, // vertical
             children: [
-              RotatedBox(
-                quarterTurns: 1,
-                child: Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 27,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+              _textLoginRotate(),
               SizedBox(height: 50),
-              RotatedBox(
-                quarterTurns: 1,
-                child: Text(
-                  'Registro',
-                  style: TextStyle(fontSize: 24, color: Colors.white),
-                ),
-              ),
-              SizedBox(height: 50),
+              _textRegisterRotate(context),
+              SizedBox(height: 100),
             ],
           ),
         ),
@@ -77,39 +61,11 @@ class Logincontent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 50),
-                Text(
-                  'Welcome',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  'back...',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: Image.asset(
-                    'assets/img/car.png',
-                    width: 150,
-                    height: 150,
-                  ),
-                ),
+                _textWelcome('Welcome'),
+                _textWelcome('back...'),
 
-                Text(
-                  'Log in',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                _ImageCard(),
+                _textLogin('Log in'),
                 Defaullttextfield(icon: Icons.email_outlined, text: 'Email'),
                 Defaullttextfield(
                   icon: Icons.lock_outline,
@@ -123,53 +79,107 @@ class Logincontent extends StatelessWidget {
                   color: Colors.purple,
                   textColor: Colors.white,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(right: 5),
-                      width: 25,
-                      height: 1,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      ' O',
-                      style: TextStyle(color: Colors.grey[100], fontSize: 17),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 5),
-                      width: 25,
-                      height: 1,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
+                _separetorOr(),
                 SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '¿No tienes cuenta?',
-
-                      style: TextStyle(color: Colors.grey[100], fontSize: 17),
-                    ),
-                    SizedBox(width: 7),
-                    Text(
-                      ' Regístrate',
-                      style: TextStyle(
-                        color: Colors.grey[100],
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
+                _textDontHaveAccount(context),
                 SizedBox(height: 50),
               ],
             ),
           ),
         ),
       ],
+    );
+  }
+
+  Widget _textDontHaveAccount(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          '¿No tienes cuenta?',
+
+          style: TextStyle(color: Colors.grey[100], fontSize: 17),
+        ),
+        SizedBox(width: 7),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/register');
+          },
+          child: Text(
+            ' Regístrate',
+            style: TextStyle(
+              color: Colors.grey[100],
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _separetorOr() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          margin: EdgeInsets.only(right: 5),
+          width: 25,
+          height: 1,
+          color: Colors.white,
+        ),
+        Text(' O', style: TextStyle(color: Colors.grey[100], fontSize: 17)),
+        Container(
+          margin: EdgeInsets.only(left: 5),
+          width: 25,
+          height: 1,
+          color: Colors.white,
+        ),
+      ],
+    );
+  }
+
+  Widget _textLogin(String text) {
+    return Text(
+      text,
+      style: TextStyle(
+        fontSize: 24,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  Widget _ImageCard() {
+    return Container(
+      alignment: Alignment.centerRight,
+      child: Image.asset('assets/img/car.png', width: 150, height: 150),
+    );
+  }
+
+  Widget _textWelcome(String text) {
+    return Text(
+      text,
+      style: TextStyle(
+        fontSize: 30,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  Widget _textRegisterRotate(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/register');
+      },
+      child: RotatedBox(
+        quarterTurns: 1,
+        child: Text(
+          'Registro',
+          style: TextStyle(fontSize: 24, color: Colors.white),
+        ),
+      ),
     );
   }
 

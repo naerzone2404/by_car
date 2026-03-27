@@ -5,12 +5,14 @@ class Defaultbutton extends StatelessWidget {
   final String text;
   final Color color;
   final Color textColor;
+  final EdgeInsetsGeometry margin;
   const Defaultbutton({
     required this.size,
     required this.text,
     this.color = Colors.white,
     this.textColor = Colors.black,
     super.key,
+    this.margin = const EdgeInsets.only(bottom: 25, left: 20, right: 20),
   });
 
   @override

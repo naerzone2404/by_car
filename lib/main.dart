@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:indriver_clone_flutter/src/presentation/pages/auth/login/LoginPage.dart';
+import 'package:indriver_clone_flutter/src/presentation/pages/auth/register/RegisterPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Loginpage(),
+      //home: Loginpage(),
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => Loginpage(),
+        '/register': (context) => Registerpage(),
+      },
     );
   }
 }
