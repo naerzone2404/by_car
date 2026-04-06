@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:indriver_clone_flutter/src/presentation/pages/auth/login/bloc/login_bloc.dart';
 import 'package:indriver_clone_flutter/src/presentation/pages/auth/login/bloc/login_event.dart';
+import 'package:indriver_clone_flutter/src/presentation/utils/BlocFormItem.dart';
 //import 'package:indriver_clone_flutter/src/presentation/pages/auth/login/bloc/login_event.dart';
 import 'package:indriver_clone_flutter/src/presentation/widgets/DefaulltTextField.dart';
 import 'package:indriver_clone_flutter/src/presentation/widgets/DefaultButton.dart';
@@ -77,7 +78,9 @@ class Logincontent extends StatelessWidget {
                       icon: Icons.email_outlined,
                       text: 'Email',
                       onChanged: (String text) {
-                        bloc?.add(EmailChanged(email: text));
+                        bloc?.add(
+                          EmailChanged(email: Blocformitem(value: text)),
+                        );
                       },
                     ),
                     Defaullttextfield(
@@ -85,8 +88,11 @@ class Logincontent extends StatelessWidget {
                       text: 'Password',
                       margin: EdgeInsets.only(top: 15, left: 20, right: 20),
                       onChanged: (String text) {
-                        bloc?.add(PasswordChanged(password: text));
+                        bloc?.add(
+                          PasswordChanged(password: Blocformitem(value: text)),
+                        );
                       },
+                      validator: (value) {},
                     ),
                     SizedBox(height: size.height * 0.2),
                     Defaultbutton(
